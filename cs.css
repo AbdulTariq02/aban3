@@ -7,9 +7,6 @@ body {
     color: #333;
     line-height: 1.6;
 }
-.navigation a:hover {
-    color: #3498db;
-}
 
 header {
     background-color: #333;
@@ -24,55 +21,33 @@ header .logo h1 {
     margin: 0;
 }
 
-header .navigation {
-    margin-top: 10px;
-}
-
 header .navigation a {
     color: white;
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
+    transition: color 0.3s ease;
 }
 
-/* Animation for fading in */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(-30px);
-    }
-    to {
-        opacity: 1;
-        /* transform: translateY(0); */
-    }
+header .navigation a:hover {
+    color: #3498db;
 }
 
 /* Intro Section */
 .intro {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+    text-align: center;
+    padding: 40px 20px;
     animation: fadeIn 2s ease-out;
 }
 
-.profile-img img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #333;
-    animation: scaleIn 1.5s ease-out;
+.intro h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
 }
 
-.bio {
-    flex: 1;
-    margin-left: 20px;
-    animation: fadeIn 2s ease-out;
-}
-
-.bio h2 {
-    font-size: 2em;
+.intro p {
+    font-size: 1.2em;
+    color: #555;
 }
 
 /* Skills Section */
@@ -81,7 +56,8 @@ header .navigation a {
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 2s ease-out;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
 .skills-icons {
@@ -121,31 +97,24 @@ footer p {
     font-size: 1.2em;
 }
 
-.social-links {
-    margin-top: 10px;
-}
-
-.social-links a {
+footer .social-links a {
     color: white;
     text-decoration: none;
     font-size: 1.5em;
-    display: block;
-    margin: 10px 0;
+    display: inline-block;
+    margin: 10px 15px;
+    transition: color 0.3s ease;
 }
 
-.social-links a i {
-    margin-right: 1000px;
+footer .social-links a:hover {
+    color: #3498db;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
-    .intro {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .bio {
-        margin-left: 0;
+    header .navigation a {
+        font-size: 1em;
+        margin: 0 10px;
     }
 
     .skills-icons {
@@ -156,7 +125,7 @@ footer p {
         margin: 10px;
     }
 
-    .social-links a {
+    footer .social-links a {
         font-size: 1.2em;
     }
 }

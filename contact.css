@@ -5,44 +5,44 @@ body {
     padding: 0;
     background-color: #f4f4f4;
     box-sizing: border-box;
+    color: #333;
 }
 
 * {
     box-sizing: border-box;
 }
 
-/* Header and Navigation (Unchanged) */
 header {
     background-color: #333;
-    padding: 20px;
     color: white;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    padding: 20px 10px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.logo h1 {
-    font-size: 1.8em;
+header .logo h1 {
+    font-size: 2.2em;
     margin: 0;
 }
 
-.navigation {
+header .navigation {
     display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    flex-wrap: wrap;
 }
 
-.nav-item {
+header .navigation .nav-item {
     color: white;
-    margin-left: 20px;
+    margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
     transition: color 0.3s ease;
 }
 
-.nav-item:hover {
-    color: #3498db;
-}
-
-.nav-item.active {
+.nav-item:hover, .nav-item.active {
     color: #3498db;
 }
 
@@ -50,81 +50,94 @@ header {
 .contact {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
+    padding: 40px 20px;
     gap: 20px;
     flex-wrap: wrap;
 }
 
-.contact-info,
-.contact-form {
+.contact-info, .contact-form {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     flex: 1;
-}
-
-.contact-info h2,
-.contact-form h3 {
-    font-size: 2.2em;
+    max-width: 48%;
+    min-width: 280px;
     margin-bottom: 20px;
 }
 
-.contact-info p {
-    font-size: 1.2em;
-    color: #555;
+.contact-info h2, .contact-form h3 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: #3498db;
+    text-align: center;
 }
 
-.contact-info .social-links a,
-.contact-form label {
-    font-size: 1.2em;
+.contact-info p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.contact-info .social-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
 }
 
 .contact-info .social-links a {
-    display: block;
+    display: flex;
+    align-items: center;
     color: #333;
     text-decoration: none;
-    margin: 10px 0;
+    margin: 8px 0;
+    font-size: 1.1em;
     transition: color 0.3s ease;
 }
 
- 
+.contact-info .social-links a:hover {
+    color: #3498db;
+}
 
-.contact-form {
-    flex: 1;
-    max-width: 500px;
+.contact-info .social-links a i {
+    margin-right: 8px;
 }
 
 .contact-form form {
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.contact-form input,
-.contact-form textarea {
-    font-size: 1.1em;
-    padding: 10px;
-    margin-bottom: 20px;
+.contact-form input, .contact-form textarea {
+    font-size: 1em;
+    padding: 12px;
     border-radius: 5px;
     border: 1px solid #ccc;
     width: 100%;
     transition: border 0.3s ease;
+    resize: none;
 }
 
-.contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form input:focus, .contact-form textarea:focus {
     border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
 }
 
 .contact-form button {
     background-color: #3498db;
     color: white;
-    font-size: 1.2em;
+    font-size: 1.1em;
     padding: 12px 18px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
 .contact-form button:hover {
@@ -136,96 +149,73 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 20px 10px;
 }
 
 footer p {
-    font-size: 1.2em;
+    font-size: 1em;
     margin-bottom: 10px;
 }
 
 footer .social-links {
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
 footer .social-links a {
     color: white;
     text-decoration: none;
-    font-size: 1.5em;
-    margin: 10px 0;
+    font-size: 1.2em;
+    margin: 5px;
     display: inline-block;
+    transition: color 0.3s ease;
 }
 
 footer .social-links a:hover {
     color: #3498db;
 }
 
-/* Animation for Contact Section */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.contact-info, .contact-form {
-    animation: fadeIn 1.5s ease-in;
-}
-
-/* Media Queries for Responsiveness */
-@media (max-width: 1200px) {
-    .contact {
-        flex-direction: row;
-    }
-}
-
+/* Responsiveness */
 @media (max-width: 900px) {
     .contact-info, .contact-form {
         max-width: 100%;
-        margin-right: 0;
+        margin: 10px 0;
     }
 
     .contact {
-        flex-direction: column;
-        text-align: center;
+        padding: 20px;
     }
 }
 
 @media (max-width: 600px) {
-    .navigation {
+    header .navigation {
         /* flex-direction: column; */
+
+        gap: 15px;
+    }
+
+    header .navigation .nav-item {
+        margin: 5px 0;
+    }
+
+    .contact {
+        flex-direction: column;
         align-items: center;
-    }
-    .navigati
-        
-    
-
-    .nav-item {
-        margin-left: 0;
-        margin-bottom: 10px;
+        padding: 20px;
     }
 
-    .contact-form button {
-        font-size: 1.1em;
-        padding: 12px 10px;
+    .contact-info, .contact-form {
+        width: 100%;
+    }
+
+    footer .social-links {
+        flex-direction: column;
     }
 
     footer .social-links a {
-        font-size: 1.3em;
-    }
-
-    .contact-info,
-    .contact-form {
-        width: 90%;
-        margin: 0 auto;
-    }
-
-    .logo h1 {
-        font-size: 1.2em;
-    }
-    br{
-        display: none;
+        font-size: 1.1em;
     }
 }
+
